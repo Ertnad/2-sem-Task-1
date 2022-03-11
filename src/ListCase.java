@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.stream.Collectors;
 
 public class ListCase<T> {
@@ -12,10 +11,6 @@ public class ListCase<T> {
 		this.secondList = secondList;
 	}
 
-	public ListCase () {
-		this(new ArrayList<>(), new ArrayList<>());
-	}
-
 	public ArrayList<T> getFirstList () {
 		return firstList;
 	}
@@ -24,7 +19,7 @@ public class ListCase<T> {
 		return secondList;
 	}
 
-	public <t extends Comparable<t>> ArrayList<t> checkTheListForSimilarElements (ArrayList<t> firstList,ArrayList<t> secondList) {
+	public ArrayList<T> createAListOfRepeatingElementsInTwoLists () {
 
 		if(firstList == null && secondList == null) {
 			return null;
@@ -36,11 +31,18 @@ public class ListCase<T> {
 			return null;
 		}
 
-		ArrayList<t> listWithSimilarElements = new ArrayList<>(firstList);
-		listWithSimilarElements.retainAll(secondList);
-		Collections.sort(listWithSimilarElements);
+		ArrayList<T> listWithSimilarElements = new ArrayList<>(getFirstList());
+		listWithSimilarElements.retainAll(getSecondList());
 
-		return (ArrayList<t>) listWithSimilarElements.stream().distinct().collect(Collectors.toList());
+		return (ArrayList<T>) listWithSimilarElements.stream().distinct().collect(Collectors.toList());
+	}
+
+	public ArrayList<T> createAListOfElementsOfTheFirstList () {
+		return getFirstList();
+	}
+
+	public ArrayList<T> createAListOfElementsOfTheSecondList () {
+		return getSecondList();
 	}
 
 }
