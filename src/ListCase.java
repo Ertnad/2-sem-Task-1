@@ -1,3 +1,5 @@
+package ru.vsu.sc.tretyakov_d_s;
+
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -37,12 +39,24 @@ public class ListCase<T> {
 		return (ArrayList<T>) listWithSimilarElements.stream().distinct().collect(Collectors.toList());
 	}
 
-	public ArrayList<T> createAListOfElementsOfTheFirstList () {
-		return getFirstList();
+	public ArrayList<T> createAListOfElementsFromTheFirstListOnly () {
+		ArrayList<T> listWithElenentsThatOccerOnlyInTheFirstList = new ArrayList<>(getFirstList());
+		ArrayList<T> list2 = new ArrayList<>(getSecondList());
+
+		list2.retainAll(listWithElenentsThatOccerOnlyInTheFirstList);
+		listWithElenentsThatOccerOnlyInTheFirstList.removeAll(list2);
+
+		return listWithElenentsThatOccerOnlyInTheFirstList;
 	}
 
-	public ArrayList<T> createAListOfElementsOfTheSecondList () {
-		return getSecondList();
+	public ArrayList<T> createAListOfElementsFromTheSecondListOnly () {
+		ArrayList<T> listWithElenentsThatOccerOnlyInTheSecondList = new ArrayList<>(getSecondList());
+		ArrayList<T> list1 = new ArrayList<>(getFirstList());
+
+		list1.retainAll(listWithElenentsThatOccerOnlyInTheSecondList);
+		listWithElenentsThatOccerOnlyInTheSecondList.removeAll(list1);
+
+		return listWithElenentsThatOccerOnlyInTheSecondList;
 	}
 
 }
