@@ -25,7 +25,7 @@ public class Main {
 
         ListCase<Integer> listCase = new ListCase<>(list1, list2);
         System.out.println(listCase.getRepetitiveElements());
-        System.out.println(listCase.createAListOfElementsFromTheFirstListOnly());
-        System.out.println(listCase.createAListOfElementsFromTheSecondListOnly());
+        System.out.println(listCase.getUniqueElements1());
+        System.out.println(listCase.getUniqueElements2());
     }
 }

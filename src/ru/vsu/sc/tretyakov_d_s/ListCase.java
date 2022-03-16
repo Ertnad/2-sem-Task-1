@@ -55,7 +55,7 @@ public class ListCase<T> {
 		return listRepetitiveElements;
 	}
 
-	public ArrayList<T> createAListOfElementsFromTheFirstListOnly () {
+	public ArrayList<T> getUniqueElements1 () {
 
 		ArrayList<T> list1 = new ArrayList<>(getFirstList());
 		ArrayList<T> list2 = new ArrayList<>(getRepetitiveElements());
@@ -73,7 +73,7 @@ public class ListCase<T> {
 		return new ArrayList<>(list1);
 	}
 
-	public ArrayList<T> createAListOfElementsFromTheSecondListOnly () {
+	public ArrayList<T> getUniqueElements2 () {
 
 		ArrayList<T> list1 = new ArrayList<>(getRepetitiveElements());
 		ArrayList<T> list2 = new ArrayList<>(getSecondList());
